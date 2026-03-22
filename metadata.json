@@ -1,0 +1,5 @@
+{
+  "name": "Paper Finder Pro",
+  "description": "Extract DOIs from citations or full PDF bibliographies and generate Sci-Hub download links.",
+  "requestFramePermissions": []
+}
