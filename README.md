@@ -1,20 +1,40 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Paper Finder Pro
 
-# Run and deploy your AI Studio app
+Akademik makale atıflarını analiz eden, DOI numaralarını bulan ve Sci-Hub/LibGen gibi kaynaklar üzerinden hızlı indirme bağlantıları oluşturan modern bir web uygulamasıdır.
 
-This contains everything you need to run your app locally.
+## 🚀 Özellikler
 
-View your app in AI Studio: https://ai.studio/apps/cf02226b-3fb5-4f0c-bcc3-d4823da63348
+- **V1: Tekil Atıf Analizi:** Karmaşık veya eksik atıf metinlerini (Abstract dahil) analiz ederek DOI, başlık, yazar ve yıl bilgilerini çıkarır.
+- **V2: PDF Referans Ayıklama:** Akademik bir PDF dosyasını yüklediğinizde, kaynakça (References) bölümündeki tüm atıfları otomatik olarak bulur ve her biri için indirme linkleri oluşturur.
+- **Gelişmiş Sci-Hub Entegrasyonu:**
+  - 8 farklı aktif Sci-Hub mirror'ı arasından seçim yapabilme.
+  - DNS engellemelerine karşı (NXDOMAIN hatası) yerleşik hata giderme rehberi.
+- **Alternatif Kaynaklar:** Sci-Hub'da bulunamayan (özellikle 2022-2025 arası yeni makaleler) için LibGen, Google Scholar, ResearchGate, PubMed ve Semantic Scholar bağlantıları.
+- **Yapay Zeka Destekli:** Metadata çıkarımı için Google Gemini AI (Gemini 3 Flash) modelini kullanır.
 
-## Run Locally
+## 🛠️ Kurulum ve Çalıştırma
 
-**Prerequisites:**  Node.js
+Bu proje bir React + Vite + Tailwind CSS uygulamasıdır.
 
+1. Bağımlılıkları yükleyin:
+```bash
+npm install
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. Geliştirme sunucusunu başlatın:
+```bash
+npm run dev
+```
+
+3. Çıktı almak (Build) için:
+```bash
+npm run build
+```
+
+## 🔑 Gereksinimler
+
+Projenin çalışması için bir **Gemini API Key** gereklidir. Geliştirme ortamında `.env` dosyasına veya AI Studio üzerindeki "Secrets" paneline `GEMINI_API_KEY` eklenmiş olmalıdır.
+
+## 📝 Notlar
+- Uygulama, Sci-Hub veritabanının genellikle 2021 sonrasını kapsamadığının bilincindedir ve bu makaleler için otomatik olarak alternatif yollara yönlendirme yapar.
+- DNS engellerini aşmak için kullanıcıya 1.1.1.1 veya 8.8.8.8 kullanımı önerilir.
